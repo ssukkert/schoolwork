@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Halo Fanpage</title>
+<link rel="stylesheet" href="halo.css" type="text/css"/> 
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="halo-ad.js?1571879727116"></script>
+</head>
+<body onload="init();">
+<div id="animation_container" style="background-color:rgba(83, 83, 83, 1.00); width:970px; height:90px">
+		<canvas id="canvas" width="970" height="90" style="position: absolute; display: block; background-color:rgba(83, 83, 83, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:970px; height:90px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+<h1>Exclusive Halo Fanpage</h1>
+<div id="Menu">
+<ul>
+	<li><a href="#">About</a></li>
+
+<li><a href="#">Games</a>
+	<ul>
+		<li><a href="#">Halo: Combat Evolved</a></li>
+		<li><a href="#">Halo 2</a></li>
+		<li><a href="#">Halo 3</a></li>
+		<li><a href="#">Halo Wars</a></li>
+		<li><a href="#">Halo 3: ODST</a></li>
+		<li><a href="#">Halo Reach</a></li>
+		<li><a href="#">Halo 4</a></li>
+		<li><a href="#">Halo 5: Guardians</a></li>
+		<li><a href="#">Halo Wars 2</a></li>
+	</ul>
+</li>
+
+<li><a href="#">Main Characters</a>
+	<ul>
+		<li><a href="#">Master Chief</a></li>
+		<li><a href="#">Cortana</a></li>
+		<li><a href="#">Sgt. Johnson</a></li>
+		<li><a href="#">343 Guility Spark</a></li>
+		<li><a href="#">Covenant</a></li>
+		<li><a href="#">UNSC soldiers</a></li>
+	</ul>
+</li>
+</ul> <!--ul means unordered list-->
+</div>
+	</div><br /><br /><br /> <!--these are line spaces and breaks-->
+<img src="halo-3.jpg" width="1500" height="1000"> 
+
+<div class="bio">
+<p>I made this Halo Fanpage for everyone who loves Halo. I want to know what your favorite Halo is. Which is it? Why do you like to play it? What makes you want to play it? Fill out the form below and let us know.</p>
+</div>
+
+<form>
+<label for="first">Gamertag:</label><input type="text" tabindex="1" id="tag"><br>
+Enter Email: <input type="email" id="email"><br>
+<label for="password">Create Password:</label> <input type="password" maxlength="10" size="10" tabindex="3" id="password"><br>
+Select Your Favorite Halo:
+	<select class="favorite">
+		<option>--</option>
+		<option>Halo: Combat Evolved</option>
+		<option>Halo 2</option>
+		<option>Halo 3</option>
+		<option>Halo Wars</option>
+		<option>Halo 3: ODST</option>
+		<option>Halo Reach</option>
+		<option>Halo 4</option>
+		<option>Halo 5: Guardians</option>
+		<option>Halo Wars 2</option>
+	</select><br>
+<div id="textarea1">
+<textarea rows="5" cols="40">Comments</textarea><br>
+</div>
+<input type="submit" value="Submit" class="button">
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D76D17B131689945BC0D24B7652C5DED");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.haload();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</body>
+</html>
