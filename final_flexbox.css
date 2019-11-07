@@ -1,0 +1,147 @@
+/* Styling for header */
+#all{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	background:#FFF;
+	-webkit-align-items: center;
+	-ms-flex-pack: center;
+	align-items: center;
+}
+#title{
+	color:#000;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	text-shadow:2px 2.5px 1px #333333;
+}
+a:link{
+	text-decoration:none;
+	font-weight:bold;
+	font-size:1.12em;
+	color:#960;
+}
+a:active{
+	text-decoration:underline;
+	font-weight:bold;
+	font-size:1.12em;
+	color:#F90;
+}
+a:hover{
+	text-decoration:underline;
+	font-weight:bold;
+	font-size:1.12em;
+	color:#F90;
+}
+a:visited{
+	text-decoration:none;
+	font-weight:bold;
+	font-size:1.12em;
+	color:#960;
+}
+nav ul {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap:wrap;
+	flex-wrap:wrap;
+}
+nav li {
+	-webkit-align-items: center;
+	-ms-flex-pack: center;
+	align-items: center;
+	list-style:none;
+	margin:1em;
+}
+
+/*Styling for main section with 3 columns */
+h2 {
+	font-family: 'ZCOOL XiaoWei', serif;
+}
+#main{
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction:row;
+	-ms-flex-direction:row;
+	flex-direction:row;
+}
+.column1 {
+	-webkit-flex: 1;
+	-ms-flex:1;
+	flex:1;
+	border-right:1px solid #5D5D5D;
+	padding:5px;
+	order:1;
+	background:#80ffff;
+}
+.column2 {
+	-webkit-flex: 1;
+	-ms-flex:1;
+	flex:1;
+	border-right:1px solid #5D5D5D;
+	padding:5px;
+	background:#0ff;
+}
+.column3 {
+	-webkit-flex: 1;
+	-ms-flex:1;
+	flex:1;
+	padding:5px;
+	order:-2;
+	background:#008080;
+}
+h2{
+	text-align:center;
+	text-decoration:underline;
+}
+footer{
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: space-between;
+	justify-content: space-between;
+	word-break:break-all;
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+@media screen and (max-width:1000px) {
+	#all{
+		width:100%;
+	}
+}
+@media screen and (max-width:700px) {
+	#main{
+		-webkit-flex-flow: column;
+		-ms-flex-flow: column;
+		flex-flow: column;
+	}
+	.column1{
+		padding:0;
+	}
+	.column2{
+		padding:0;
+	}
+	.column3{
+		padding:0;
+	}
+}
