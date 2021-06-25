@@ -29,6 +29,7 @@
 		<li><a href="#">Halo 4</a></li>
 		<li><a href="#">Halo 5: Guardians</a></li>
 		<li><a href="#">Halo Wars 2</a></li>
+		<li><a href="#">Halo Infinite</a></li>
 	</ul>
 </li>
 
@@ -37,9 +38,11 @@
 		<li><a href="#">Master Chief</a></li>
 		<li><a href="#">Cortana</a></li>
 		<li><a href="#">Sgt. Johnson</a></li>
+		<li><a href="#">Arbiter</a></li>
 		<li><a href="#">343 Guility Spark</a></li>
 		<li><a href="#">Covenant</a></li>
 		<li><a href="#">UNSC soldiers</a></li>
+		<li><a href="#">The Flood</a></li>
 	</ul>
 </li>
 </ul> <!--ul means unordered list-->
@@ -99,7 +102,7 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.haload();
+	exportRoot = new lib.halo-ad();
 	stage = new lib.Stage(canvas);
 	stage.enableMouseOver();	
 	//Registers the "tick" event listener.

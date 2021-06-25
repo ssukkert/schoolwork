@@ -96,7 +96,7 @@ p.nominalBounds = new cjs.Rectangle(-485.5,-45.5,971,91);
 
 
 // stage content:
-(lib.haload = function(mode,startPosition,loop) {
+(lib.halo-ad = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
